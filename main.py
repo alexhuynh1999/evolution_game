@@ -20,12 +20,13 @@ def ball (x,y):
 
 
 x = width * 0.45
-y = 500
+y = 200
 x_vel = 0
-y_vel = 0
+y_vel = 5
 
 while switch:
     for event in pygame.event.get():
+        y_vel = 10
         if event.type == pygame.QUIT:
             switch = not switch
 
@@ -41,13 +42,11 @@ while switch:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 y_vel = -5
-            elif event.key == pygame.K_DOWN:
-                y_vel = 5
-        if event.type == pygame.KEYUP:
-            if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
-                y_vel = 0
+                clock.tick(5)
 
     x += x_vel
+    if y + y_vel > 500:
+        y_vel = 0
     y += y_vel
     display.fill(white)
     ball(x, y)
