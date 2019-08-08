@@ -42,7 +42,6 @@ while switch:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
                 y_vel = -5
-                clock.tick(5)
 
     x += x_vel
     if y + y_vel > 500:
